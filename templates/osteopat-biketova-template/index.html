@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Запишитесь на бесплатную консультацию к опытному остеопату в Санкт-Петербурге. Эффективное лечение боли в спине, суставах и ЛОР-заболеваний без медикаментов.">
+  <meta name="keywords" content="остеопат, лечение боли в спине, лечение ЛОР-заболеваний, остеопат в Санкт-Петербурге, Бикетова Александра Викторовна">
+  <meta name="author" content="Бикетова Александра Викторовна">
+  <title>Остеопат в СПб | Бикетова Александра Викторовна</title>
+
+  <!-- Иконка сайта (favicon) -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <!-- Custom CSS -->
+  <style>
+    body {
+        font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem; /* Базовый размер для обычного текста */
+}
+
+.navbar-nav .nav-link {
+        font-size: 1.2rem; /* Увеличен шрифт */
+        font-weight: 500;  /* Увеличена жирность текста */
+    }
+
+/* Убираем стандартное оформление ссылок */
+#contact a {
+    color: inherit; /* Цвет текста наследуется от родительского элемента */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+/* Добавляем подчеркивание при наведении */
+#contact a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+  font-size: calc(1.5rem + 2vw); /* Адаптация для разных экранов */
+  font-weight: bold;
+}
+
+h2 {
+  font-size: calc(1.25rem + 1.5vw);
+}
+
+h3 {
+  font-size: calc(1rem + 1vw);
+}
+
+p {
+  font-size: calc(0.9rem + 0.5vw); /* Адаптация для параграфов */
+}
+
+.btn-primary {
+  font-size: calc(0.8rem + 0.5vw); /* Адаптация для кнопок */
+}
+
+.section-heading {
+  font-size: calc(1.5rem + 1vw); /* Размер заголовков секций */
+  color: #006644;
+  font-weight: bold;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  /* Коррекция для мобильных устройств */
+  h1 {
+    font-size: 2rem; /* Ограничение для слишком больших шрифтов */
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  p {
+    font-size: 1rem; /* Читаемый текст для мобильных экранов */
+  }
+
+  .btn-primary {
+    font-size: 1rem;
+  }
+}
+
+
+    .hero-section {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+      background-color: #e0e0e0;
+    }
+
+    /* Затемняющий слой */
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачное черное затемнение */
+      z-index: 1;
+    }
+
+    .hero-section[data-fallback="true"] {
+      background-image: url('hero_section_image1.jpg');
+    }
+
+    .hero-section h1, .hero-section h2, .hero-section p, .hero-section .btn-primary {
+      position: relative;
+      z-index: 2; /* Поверх затемняющего слоя */
+    }
+
+    .hero-section h1 {
+      font-size: 48px;
+      font-weight: bold;
+    }
+
+    .hero-section h2 {
+      font-size: 36px;
+      font-weight: bold;
+    }
+
+    .hero-section p {
+      font-size: 20px;
+      margin-top: 20px;
+    }
+
+    .btn-primary {
+      background-color: #006644;
+      border-color: #006644;
+      z-index: 2;
+    }
+
+    .btn-primary:hover {
+      background-color: #28A745;
+      border-color: #28A745;
+    }
+
+    .section-heading {
+      font-size: 36px;
+      color: #006644;
+      font-weight: bold;
+      margin-bottom: 50px;
+      text-align: center;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .card-body {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-img-top {
+      max-height: 200px;
+      object-fit: cover;
+    }
+
+    .bg-light {
+      background-color: #F8F8F8 !important;
+    }
+
+    .testimonials-carousel .carousel-item {
+      text-align: center;
+    }
+
+    .testimonial-img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+
+    footer {
+      background-color: #333333;
+      color: white;
+      padding: 20px 0;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .about-image {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: 767.98px) {
+      .about-image {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      .card {
+        margin-bottom: 20px;
+        margin-top: 20px;
+      }
+    }
+
+    /* Общие стили для иконок соцсетей */
+    .social-icons a {
+      margin: 0 10px;
+      font-size: 24px;
+      color: #333;
+      text-decoration: none; /* Убираем подчеркивание */
+      position: relative;
+    }
+  
+    /* Изменение цвета при наведении */
+    .social-icons a:hover {
+      color: #006644;
+    }
+  
+    /* Убираем черточку, если она появляется при наведении */
+    .social-icons a::after {
+      content: ''; /* Пустой контент */
+      position: absolute;
+      width: 0;
+      height: 0;
+      left: 0;
+      bottom: 0;
+      background-color: transparent;
+      transition: all 0.3s ease;
+    }
+  
+    /* Исправляем поведение при наведении */
+    .social-icons a:hover::after {
+      width: 0; /* Не даем появляться черточке */
+      height: 0;
+      background-color: transparent;
+    }
+
+    /* Стили для заглушек изображений */
+    .image-placeholder {
+      background-color: #f0f0f0;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 14px;
+      color: #333;
+    }
+
+    /* Custom CSS для управления слайдером */
+    .custom-carousel-control {
+      position: absolute;
+      top: 50%; /* Центрируем по вертикали */
+      transform: translateY(-50%); /* Сдвигаем на 50% для точного центрирования */
+      z-index: 2;
+      width: 5%; /* Уменьшаем ширину */
+    }
+  
+    .carousel-control-prev {
+      left: -50px; /* Смещаем за пределы карусели */
+    }
+  
+    .carousel-control-next {
+      right: -50px; /* Смещаем за пределы карусели */
+    }
+  
+    .custom-control-icon {
+      background-color: #006644; /* Изменение цвета стрелок на зелёный */
+    }
+  
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-size: 100%, 100%;
+    }
+
+      /* Стили для попапа */
+  .popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    text-align: left;
+    position: relative;
+  }
+
+  .close-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  /* Скрываем ошибки */
+  .error-message {
+    display: none;
+  }
+
+  </style>
+ 
+</head>
+
+<body>
+
+<!-- Навигация -->
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top"> <!-- Добавлен класс fixed-top -->
+      <div class="container d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center">
+          <!-- Логотип и название -->
+          <div class="ml-2">
+            <a href="#">
+                <img src="osteopat-biketova-small.jpeg" alt="Врач остеопат" class="rounded-circle" style="width: 50px; height: 50px;" loading="lazy">
+            </a> 
+          </div>
+          <a class="navbar-brand ml-3" href="#">Остеопат Бикетова</a> <!-- Добавлен класс ml-3 -->
+        </div>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="#services">Услуги</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">О враче</a></li>
+            <li class="nav-item"><a class="nav-link" href="#certificates">Квалификация</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Контакты</a></li>
+          </ul>
+
+          <!-- Иконки социальных сетей -->
+          <div class="d-lg-none text-center mb-2">
+            <p>Подпишитесь на мои социальные сети</p>
+          </div>
+          <ul class="navbar-nav ml-auto d-flex flex-row justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link px-2" href="https://wa.me/79119866308" target="_blank">
+                  <i class="fab fa-whatsapp"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link px-2" href="https://t.me/+dcXq8lbU7p05ZjNi" target="_blank">
+                  <i class="fab fa-telegram"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link px-2" href="https://vk.com/osteopat.biketova" target="_blank">
+                  <i class="fab fa-vk"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-2" href="https://www.youtube.com/channel/UCxta34TZ-FLfosrG_AJCqAg" target="_blank">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link px-2" href="https://www.instagram.com/osteopat_biketova/" target="_blank">
+                  <i class="fab fa-instagram"></i>
+                </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+</header>
+ 
+<!-- Hero Section -->
+<section class="hero-section" id="hero-section">
+  <div class="container">
+    <h1>Остеопат в Санкт-Петербурге</h1>
+    <h2>Бикетова Александра Викторовна</h2>
+    <p>Эффективное лечение боли в спине, суставах и ЛОР-заболеваний без медикаментов</p>
+    <a href="#contact" class="btn btn-primary btn-lg mt-4">Записаться на бесплатную консультацию</a>
+  </div>
+</section>
+
+<!-- Услуги -->
+<section id="services" class="py-5">
+    <div class="container">
+      <h2 class="section-heading">Услуги врача остеопата</h2>
+      
+      <!-- Верхний ряд карточек -->
+      <div class="row">
+        <div class="col-md-4 d-flex">
+          <div class="card mb-4 w-100">
+            <img src="krivosheya.jpg" class="card-img-top" alt="Диплом 1" loading="lazy">
+            <div class="card-body">
+              <h3 class="card-title">Лечение кривошеи</h3>
+              <p class="card-text">Чувствуете напряжение в шее или ограниченность движений? Остеопат поможет исправить кривошею, восстановив естественное положение шейных позвонков.</p>
+              <a href="#contact" class="btn btn-outline-primary mt-auto">Запишитесь на консультацию</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex">
+          <div class="card mb-4 w-100">
+            <img src="lor.jpg" class="card-img-top" alt="Диплом 2" loading="lazy">
+            <div class="card-body">
+              <h3 class="card-title">Лечение ЛОР-заболеваний</h3>
+              <p class="card-text">Страдаете от частых синуситов, отитов или проблем с дыханием? Остеопатический подход может помочь улучшить работу ЛОР-органов, устраняя причины недугов.</p>
+              <a href="#contact" class="btn btn-outline-primary mt-auto">Запишитесь на консультацию</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex">
+          <div class="card mb-4 w-100">
+            <img src="alergiya.jpg" class="card-img-top" alt="Диплом 3" loading="lazy">
+            <div class="card-body">
+              <h3 class="card-title">Лечение аллергии</h3>
+              <p class="card-text">Мучает аллергия и постоянная заложенность носа? Остеопат поможет устранить дисбаланс в организме, который может быть причиной аллергических реакций.</p>
+              <a href="#contact" class="btn btn-outline-primary mt-auto">Запишитесь на консультацию</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Нижний ряд карточек с отступом сверху -->
+      <div class="row mt-4">
+        <div class="col-md-4 d-flex">
+          <div class="card mb-4 w-100">
+            <img src="sustavi.jpg" class="card-img-top" alt="Диплом 4" loading="lazy">
+            <div class="card-body">
+              <h3 class="card-title">Лечение болезней суставов</h3>
+              <p class="card-text">Боли в суставах мешают двигаться свободно? Остеопат поможет снять напряжение, улучшить подвижность и устранить причины дискомфорта.</p>
+              <a href="#contact" class="btn btn-outline-primary mt-auto">Запишитесь на консультацию</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex">
+          <div class="card mb-4 w-100">
+            <img src="zhkt.jpg" class="card-img-top" alt="Диплом 4" loading="lazy">
+            <div class="card-body">
+              <h3 class="card-title">Лечение заболеваний ЖКТ</h3>
+              <p class="card-text">Проблемы с пищеварением и постоянный дискомфорт? Остеопат поможет восстановить работу ЖКТ, устранив причины нарушений.</p>
+              <a href="#contact" class="btn btn-outline-primary mt-auto">Запишитесь на консультацию</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex">
+          <div class="card mb-4 w-100">
+            <img src="endokrinaya-sistema.jpeg" class="card-img-top" alt="Диплом 4" loading="lazy">
+            <div class="card-body">
+              <h3 class="card-title">Лечение эндокринных патологий</h3>
+              <p class="card-text">Страдаете от гормональных сбоев или проблем с эндокринной системой? Остеопат поможет восстановить баланс в организме и улучшить общее состояние.</p>
+              <a href="#contact" class="btn btn-outline-primary mt-auto">Запишитесь на консультацию</a>
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+</section>
+
+  
+<!-- О враче -->
+<section id="about" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="section-heading">О враче</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <img src="osteopat-biketova.jpeg" alt="Бикетова Александра Викторовна" class="img-fluid rounded about-image" loading="lazy">
+      </div>
+      <div class="col-md-6">
+        <h3 class="font-weight-bold">Бикетова Александра Викторовна</h3>
+        <p>Врач-остеопат с более чем 10-летним опытом работы, специализирующийся на лечении боли в спине, суставах, а также ЛОР-заболеваний и аллергий.</p>
+        <p>Прошла обучение в Санкт-Петербургской государственной педиатрической медицинской академии и регулярно повышает квалификацию.</p>
+        <h3 class="font-weight-bold">Образование</h3>
+        <p>Санкт-Петербургская государственная педиатрическая медицинская академия с 2004-2010гг.</p>
+        <p>Санкт-Петербургский государственный университет с 2013-2017гг.</p>
+        <a href="#contact" class="btn btn-primary mt-3">Запишитесь на консультацию</a>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-6">
+          <h3 class="font-weight-bold">Повышение квалификации</h3>
+          <p>2013г. – СПбГУ, дополнительная профессиональная образовательная программа повышения квалификации «Общие принципы мануальной медицины, остеопатии. Введение в структуральный раздел мануальной медицины, остеопатии».</p>
+          <p>2014г. – СПбГУ, повышение квалификации по программе «Принципы остеопатической диагностики и коррекции соматических дисфункций позвоночника и таза. Введение в краниосакральный раздел мануальной медицины, остеопатии».</p>
+          <p>2015г. – СПбГУ, профессиональная подготовка по специальности «Мануальная терапия».</p>
+          <p>2015г. – СПбГУ, дополнительная профессиональная образовательная программа «Принципы остеопатической диагностики и коррекции соматических дисфункций конечностей, костей черепа».</p>
+          <p>2016г. – СПБГУ, повышение квалификации « Остеопатическая диагностика и коррекция соматических дисфункций нервной системы, внутренних органов грудной клетки и органов головы».Сентябрь-ноябрь</p>
+          <p>2016г. – СПБГУ, повышение квалификации «Функциональный подход в остеопатии. Принципы остеопатической диагностики и коррекции соматических дисфункций мочеполовой системы».</p>
+          <p>2019г. – «Остеопатические аспекты педиатрии» в институте остеопатической медицины им.В.Л.Андрианова.</p>
+          <a href="#contact" class="btn btn-primary mt-3">Запишитесь на консультацию</a>
+        </div>
+        <br>
+        <div class="col-md-6">
+            <img src="osteopat-biketova-2.jpeg" alt="Бикетова Александра Викторовна" class="img-fluid rounded about-image" loading="lazy">
+        </div>
+      </div>
+  </div>
+</section>
+
+<!-- Мои дипломы, удостоверения, сертификаты -->
+<section id="certificates" class="py-5">
+    <div class="container">
+      <h2 class="section-heading">Мои дипломы, удостоверения, сертификаты</h2>
+            <div class="row">
+              <div class="col-md-4 d-flex">
+                <div class="card mb-4 w-100">
+                  <img src="diplom-1.png" class="card-img-top" alt="Диплом 1" loading="lazy">
+                  <div class="card-body">
+                    <h5 class="card-title">2010 г. Диплом</h5>
+                    <p class="card-text">Санкт-Петербургская государственная педиатрическая медицинская академия</p>
+                    <p class="card-text">Квалификация: Врач по специальности Педиатрия</p>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 d-flex">
+                <div class="card mb-4 w-100">
+                  <img src="diplom-2.png" class="card-img-top" alt="Диплом 2" loading="lazy">
+                  <div class="card-body">
+                    <h5 class="card-title">2017 г. Диплом о переподготовке</h5>
+                    <p class="card-text">Северо-Западный государственный медицинский университет имени И.И. Мечникова</p>
+                    <p class="card-text">Допущена: к ведению профессиональной деятельности в сфере Остеопатия</p>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 d-flex">
+                <div class="card mb-4 w-100">
+                  <img src="udostoverenie-1.png" class="card-img-top" alt="Диплом 3" loading="lazy">
+                  <div class="card-body">
+                    <h5 class="card-title">2013 г. Удостоверение о повышении квалификации</h5>
+                    <p class="card-text">Санкт-Петербургский государственный университет</p>
+                    <p class="card-text">Квалификация: Общие принципы мануальной медицины, остеопатии.</p>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-4"> <!-- Добавляем класс mt-4 для отступа сверху -->
+              <div class="col-md-4 d-flex">
+                <div class="card mb-4 w-100">
+                  <img src="udostoverenie-2.png" class="card-img-top" alt="Диплом 4" loading="lazy">
+                  <div class="card-body">
+                    <h5 class="card-title">2015 г. Удостоверение о повышении квалификации</h5>
+                    <p class="card-text">Санкт-Петербургский государственный университет</p>
+                    <p class="card-text">Квалификация: Остеопатическая диагностика и коррекция внутрикостных соматических дисфункций и черепных нервов. Висцеральная остеопатия</p>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 d-flex">
+                <div class="card mb-4 w-100">
+                  <img src="udostoverenie-3.png" class="card-img-top" alt="Диплом 4" loading="lazy">
+                  <div class="card-body">
+                    <h5 class="card-title">2015 г. Удостоверение о повышении квалификации</h5>
+                    <p class="card-text">Санкт-Петербургский государственный университет</p>
+                    <p class="card-text">Остеопатичекая диагностика и коррекция соматических дисфункций конечностей, костей черепа</p>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 d-flex">
+                <div class="card mb-4 w-100">
+                  <img src="sertifikat-1.png" class="card-img-top" alt="Диплом 4" loading="lazy">
+                  <div class="card-body">
+                    <h5 class="card-title">2017 г. Сертификат специалиста</h5>
+                    <p class="card-text">Северо-Западный государственный медицинский университет имени И.И. Мечникова</p>
+                    <p class="card-text">Допущена: к медицинской деятельности по специальности Остеопатия</p>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+    </div>
+</section>
+    
+<!-- Контакты и форма записи -->
+<section id="contact" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-heading">Запишитесь на консультацию</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Контактная информация</h3>
+          <p><i class="fas fa-map-marker-alt"></i> <a href="https://yandex.ru/maps/?rtext=~г.+Санкт-Петербург,+ул.+Смолячкова,+12,+к.2" target="_blank">г. Санкт-Петербург, ул. Смолячкова, 12, к.2</a></p>
+          <p><i class="fas fa-phone"></i> <a href="tel:+79119866308">+7 911 986 63 08</a></p>
+          <p><i class="fas fa-envelope"></i> <a href="mailto:biketova_osteopat@mail.ru">biketova_osteopat@mail.ru</a></p>
+          <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/79119866308">Написать</a></p>
+        </div>
+        <div class="col-md-6">
+          <h3>Заполните форму</h3>
+          <form>
+            <div class="form-group">
+              <label for="name">Имя</label>
+              <input type="text" class="form-control" id="name" placeholder="Ваше имя">
+            </div>
+            <div class="form-group">
+              <label for="phone">Телефон</label>
+              <input type="tel" class="form-control" id="phone" placeholder="Ваш телефон">
+            </div>
+            <div class="form-group">
+              <label for="message">Сообщение</label>
+              <textarea class="form-control" id="message" rows="3" placeholder="Ваше сообщение"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Отправить</button>
+          </form>
+        </div>
+      </div>
+    </div>
+</section>
+  
+
+<!-- Подписка на соцсети -->
+<section id="social" class="py-5">
+    <div class="container text-center">
+      <h2 class="section-heading">Подпишитесь на мои социальные сети</h2>
+      <div class="social-icons">
+        <a href="https://wa.me/79119866308" target="_blank" aria-label="WhatsApp" rel="noopener noreferrer">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://t.me/+dcXq8lbU7p05ZjNi" target="_blank" aria-label="Telegram" rel="noopener noreferrer">
+          <i class="fab fa-telegram"></i>
+        </a>
+        <a href="https://vk.com/osteopat.biketova" target="_blank" aria-label="VK" rel="noopener noreferrer">
+          <i class="fab fa-vk"></i>
+        </a>
+        <a href="https://www.youtube.com/channel/UCxta34TZ-FLfosrG_AJCqAg" target="_blank" aria-label="YouTube" rel="noopener noreferrer">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://www.instagram.com/osteopat_biketova/" target="_blank" aria-label="Instagram" rel="noopener noreferrer">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+</section>
+
+
+<footer class="py-4 bg-dark text-white">
+    <div class="container text-center">
+    <p>&copy; 2024 Бикетова Александра Викторовна</p>
+    <ul class="list-inline">
+        <li class="list-inline-item"><a href="privacy.html" class="text-white">Политика конфиденциальности</a></li>
+        <li class="list-inline-item"><a href="#" class="text-white">Карта сайта</a></li>
+        <li class="list-inline-item"><a href="https://wa.me/79522672726" target="_blank"  class="text-white">Разработчик сайта: Мясоед Александр</a></li>
+    </ul>
+    </div>
+</footer>    
+  
+
+<!-- JavaScript: Bootstrap and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const heroSection = document.getElementById('hero-section');
+    const bgImage = new Image();
+    bgImage.src = 'https://images.unsplash.com/photo-1580281658623-88aa2d9369b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDh8fGRvY3RvcnxlbnwwfHx8fDE2ODg3ODk0NzE&ixlib=rb-1.2.1&q=80&w=1080';
+
+    bgImage.onload = function() {
+      heroSection.style.backgroundImage = `url('${bgImage.src}')`;
+      heroSection.setAttribute("data-fallback", "false");
+    };
+
+    bgImage.onerror = function() {
+      heroSection.setAttribute("data-fallback", "true");
+    };
+  });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const heroSection = document.getElementById('hero-section');
+      const bgImage = new Image();
+      bgImage.src = 'https://images.unsplash.com/photo-1580281658623-88aa2d9369b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDh8fGRvY3RvcnwwfHx8fDE2ODg3ODk0NzE&ixlib=rb-1.2.1&q=80&w=1080';
+  
+      bgImage.onload = function() {
+        heroSection.style.backgroundImage = `url('${bgImage.src}')`;
+        heroSection.setAttribute("data-fallback", "false");
+      };
+  
+      bgImage.onerror = function() {
+        heroSection.setAttribute("data-fallback", "true");
+      };
+  
+      // Плавный скролл при клике на ссылки меню
+      const menuLinks = document.querySelectorAll('.navbar-nav .nav-link');
+  
+      menuLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetID = this.getAttribute('href').substring(1);
+          const targetSection = document.getElementById(targetID);
+  
+          window.scrollTo({
+            top: targetSection.offsetTop - 60, // 60px для учета высоты фиксированной навигации
+            behavior: 'smooth'
+          });
+        });
+      });
+    });
+  </script>
+ 
+<!-- Попап форма записи -->
+<div id="consultation-popup" class="popup" style="display: none;">
+    <div class="popup-content">
+      <span class="close-popup">&times;</span>
+      <h3>Запишитесь на консультацию</h3>
+      <form id="consultation-form">
+        <div class="form-group">
+          <label for="popup-name">Фамилия, имя, отчество</label>
+          <input type="text" class="form-control" id="popup-name" placeholder="Ваше имя" required>
+          <small class="error-message" id="name-error" style="color: red; display: none;">Введите корректные фамилию, имя, отчество (только русские буквы).</small>
+        </div>
+        <div class="form-group">
+          <label for="popup-phone">Номер сотового телефона</label>
+          <input type="tel" class="form-control" id="popup-phone" placeholder="79117142328" required>
+          <small class="error-message" id="phone-error" style="color: red; display: none;">Введите корректный номер телефона (11 цифр): 79117142328.</small>
+        </div>
+        <div class="form-group">
+          <label for="popup-message">Сообщение (не обязательно)</label>
+          <textarea class="form-control" id="popup-message" rows="3" placeholder="Ваше сообщение (необязательно)"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Отправить</button>
+      </form>
+    </div>
+</div>
+  
+<script>
+    // Открытие попапа
+    document.querySelectorAll('a[href="#contact"]').forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('consultation-popup').style.display = 'flex';
+      });
+    });
+  
+    // Закрытие попапа
+    document.querySelector('.close-popup').addEventListener('click', function() {
+      document.getElementById('consultation-popup').style.display = 'none';
+    });
+  
+    // Валидация формы
+    document.getElementById('consultation-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+  
+      const nameInput = document.getElementById('popup-name');
+      const phoneInput = document.getElementById('popup-phone');
+      const nameError = document.getElementById('name-error');
+      const phoneError = document.getElementById('phone-error');
+  
+      const namePattern = /^[А-ЯЁа-яё\s-]+$/; // Русские буквы, пробелы, дефис
+      const phonePattern = /^79\d{9}$/; // Формат телефона: 79117143282
+  
+      let isValid = true;
+  
+      // Валидация имени
+      if (!namePattern.test(nameInput.value)) {
+        nameError.style.display = 'block';
+        isValid = false;
+      } else {
+        nameError.style.display = 'none';
+      }
+  
+      // Валидация телефона
+      if (!phonePattern.test(phoneInput.value)) {
+        phoneError.style.display = 'block';
+        isValid = false;
+      } else {
+        phoneError.style.display = 'none';
+      }
+  
+      // Если форма валидна, отправляем данные
+      if (isValid) {
+        alert('Форма успешно отправлена!');
+        document.getElementById('consultation-popup').style.display = 'none';
+        // Здесь можно добавить AJAX для отправки данных на сервер
+      }
+    });
+  </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const form = document.getElementById('consultation-form');
+      const nameInput = document.getElementById('popup-name');
+      const phoneInput = document.getElementById('popup-phone');
+      const messageInput = document.getElementById('popup-message');
+      const nameError = document.getElementById('name-error');
+      const phoneError = document.getElementById('phone-error');
+      const submitButton = form.querySelector('button[type="submit"]');
+    
+      const namePattern = /^[А-ЯЁа-яё\s-]+$/; // Только русские буквы, пробелы, дефисы
+      const phonePattern = /^79\d{9}$/; // Номер телефона должен начинаться с 79 и состоять из 11 цифр
+    
+      // Функция для проверки валидности формы
+      function checkFormValidity() {
+        let isValid = true;
+    
+        // Проверка имени
+        if (!namePattern.test(nameInput.value)) {
+          nameError.style.display = 'block';
+          isValid = false;
+        } else {
+          nameError.style.display = 'none';
+        }
+    
+        // Проверка телефона
+        if (!phonePattern.test(phoneInput.value)) {
+          phoneError.style.display = 'block';
+          isValid = false;
+        } else {
+          phoneError.style.display = 'none';
+        }
+    
+        // Активируем или деактивируем кнопку отправки в зависимости от валидности формы
+        submitButton.disabled = !isValid;
+      }
+    
+      // Проверка полей в реальном времени
+      nameInput.addEventListener('input', checkFormValidity);
+      phoneInput.addEventListener('input', checkFormValidity);
+    
+      // Валидация и отправка формы
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+    
+        // Повторная проверка перед отправкой
+        if (submitButton.disabled) {
+          return;
+        }
+    
+        let message = messageInput.value.trim();
+        if (!message) {
+          message = "Хочу записаться на консультацию";
+        }
+    
+        const currentDate = new Date();
+        const formattedDate = currentDate.toLocaleDateString();
+        const formattedTime = currentDate.toLocaleTimeString();
+    
+        let whatsappMessage = `Имя: ${nameInput.value}%0A`;
+        whatsappMessage += `Телефон: ${phoneInput.value}%0A`;
+        whatsappMessage += `Сообщение: ${message}%0A`;
+        whatsappMessage += `Дата и время отправки: ${formattedDate} ${formattedTime}`;
+    
+        const whatsappLink = `https://wa.me/79522672726?text=${whatsappMessage}`;
+        window.open(whatsappLink, '_blank');
+    
+        document.getElementById('consultation-popup').style.display = 'none';
+      });
+    
+      // Изначально кнопка должна быть неактивной
+      submitButton.disabled = true;
+    });
+    </script>
+    
+    
+
+</body>
+</html>
