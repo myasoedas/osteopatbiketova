@@ -1,15 +1,20 @@
 import os
 from pathlib import Path
+from decouple import config
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-a!d!%mri63u2l)#mnyr#!)u#y1v+1umss)656f(2ubjp(&79w1'
+# SECRET_KEY = 'django-insecure-a!d!%mri63u2l)#mnyr#!)u#y1v+1umss)656f(2ubjp(&79w1'
+SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'www.myasoedaleksandr.pythonanywhere.com',
-    'myasoedaleksandr.pythonanywhere.com'
+    '127.0.0.1',
+    'localhost',
+    'alexproit.ru',
+    'www.alexproit.ru',
 ]
 
 INSTALLED_APPS = [
@@ -62,8 +67,13 @@ WSGI_APPLICATION = 'blogicum.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DATABASE_NAME'),
+        'USER': config('DATABASE_USER'),
+        'PASSWORD': config('DATABASE_PASSWORD'),
+        'HOST': config('DATABASE_HOST', default='localhost'),
+        'PORT': config('DATABASE_PORT', default='5432'),
+
     }
 }
 
@@ -82,9 +92,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-HANDLER404 = 'pages.views.custom_404_view'
-HANDLER403 = 'pages.views.custom_403_view'
-HANDLER500 = 'pages.views.custom_500_view'
+handler404 = 'pages.views.custom_404_view'
+handler403 = 'pages.views.custom_403_view'
+handler500 = 'pages.views.custom_500_view'
 
 LANGUAGE_CODE = 'ru-RU'
 
@@ -100,6 +110,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
 STATICFILES_DIRS = [
     BASE_DIR / 'static_dev',
 ]
@@ -108,5 +120,48 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
-EMAIL_FILE_PATH = BASE_DIR / 'sent_emails'
+# Настройки для отправки почты через SMTP Яндекса
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True  # Используем SSL для шифрованного соединения
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')  # Читаем из .env
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')  # Читаем из .env
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+# Добавляем таймауты для повышения надежности
+EMAIL_TIMEOUT = 10  # Таймаут для подключения (в секундах)
+
+# Добавляем обработку ошибок при сбоях отправки почты
+EMAIL_USE_LOCALTIME = True
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'logs', 'django_debug.log'),
+            'formatter': 'verbose',  # Форматирование для логов
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'WARNING',  # Для продакшн лучше использовать 'INFO' или 'WARNING'. 'DEBUG' - только при настройке и проверке работстоспособности.
+            'propagate': True,
+        },
+    },
+}
+
