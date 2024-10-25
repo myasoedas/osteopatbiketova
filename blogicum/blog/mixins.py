@@ -8,6 +8,25 @@ from django.utils import timezone
 from .constants import NUMBER_OF_POSTS
 from .models import Post
 
+from django import forms
+from django.core.exceptions import ValidationError
+
+
+class AgreementMixin(forms.Form):
+    agree_to_privacy = forms.BooleanField(
+        label="Нажимая на кнопку, вы соглашаетесь с",
+        required=True,
+        help_text='Условиями политики конфиденциальности.',
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+
+    def clean_agree_to_privacy(self):
+        if not self.cleaned_data.get('agree_to_privacy'):
+            raise ValidationError(
+                "Пожалуйста, поставьте галочку, чтобы подтвердить ваше согласие с политикой конфиденциальности."
+            )
+        return self.cleaned_data['agree_to_privacy']
+
 
 class PostQueryMixin:
     def get_filtered_posts(self, author=None, published_only=False):

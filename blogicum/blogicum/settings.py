@@ -13,6 +13,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
+    '89.232.177.32',
     'alexproit.ru',
     'www.alexproit.ru',
 ]
