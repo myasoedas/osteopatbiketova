@@ -8,15 +8,19 @@ from django.utils import timezone
 from .constants import NUMBER_OF_POSTS
 from .models import Post
 
+
 from django import forms
 from django.core.exceptions import ValidationError
+from django.utils.safestring import mark_safe
 
 
 class AgreementMixin(forms.Form):
     agree_to_privacy = forms.BooleanField(
-        label="Нажимая на кнопку, вы соглашаетесь с",
+        label=mark_safe(
+            'Нажимая на кнопку, вы соглашаетесь с '
+            '<a href="/pages/privacy/" target="_blank">политикой конфиденциальности</a>.'
+        ),
         required=True,
-        help_text='Условиями политики конфиденциальности.',
         widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
     )
 

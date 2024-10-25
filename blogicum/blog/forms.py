@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from .mixins import AgreementMixin
 
 from .models import Comment
 
@@ -19,7 +20,7 @@ class CommentForm(forms.ModelForm):
         }
 
 
-class UserRegistrationForm(UserCreationForm):
+class UserRegistrationForm(UserCreationForm, AgreementMixin):
     class Meta:
         model = User
         fields = ['username', 'email']  # Добавьте поля, которые вам нужны
