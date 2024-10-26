@@ -1,45 +1,53 @@
 {% extends "base.html" %}
 {% load django_bootstrap5 %}
+
 {% block title %}
-  {% if edit_mode %}
-    Редактирование комментария
-  {% else %}
+  {% if is_delete %}
     Удаление комментария
+  {% else %}
+    Редактирование комментария
   {% endif %}
 {% endblock %}
 
 {% block content %}
-  {% if user.is_authenticated %}
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-6 col-md-8 col-sm-12">
-          <div class="card">
-            <div class="card-header text-center">
-              {% if edit_mode %}
-                Редактирование комментария
-              {% else %}
-                Удаление комментария
-              {% endif %}
-            </div>
-            <div class="card-body">
-              <form method="post" action="{% if edit_mode %}{% url 'blog:edit_comment' post_id=comment.post.id comment_id=comment.id %}{% endif %}">
+{% if user.is_authenticated %}
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card">
+          <div class="card-header text-center">
+            {% if is_delete %}
+              Удаление комментария
+            {% else %}
+              Редактирование комментария
+            {% endif %}
+          </div>
+          <div class="card-body">
+            {% if is_delete %}
+              <!-- Отображаем только текст комментария, без формы -->
+              <p>{{ object.text }}</p>
+              <form method="post" action="{% url 'blog:delete_comment' post_id=object.post.id comment_id=object.id %}">
                 {% csrf_token %}
-                {% if not delete_mode %}
-                  {% bootstrap_form form %}
-                {% else %}
-                  <p>{{ comment.text }}</p>
-                {% endif %}
-                <div class="d-grid gap-2 mt-4">
-                  {% bootstrap_button button_type="submit" content="Отправить" %}
+                <div class="d-flex justify-content-between">
+                  <button type="submit" class="btn btn-danger">Удалить</button>
+                  <a href="{% url 'blog:post_detail' post_id=object.post.id %}" class="btn btn-secondary">Отмена</a>
                 </div>
               </form>
-            </div>
+            {% else %}
+              <!-- Отображаем форму для редактирования комментария -->
+              <form method="post" action="{% url 'blog:edit_comment' post_id=object.post.id comment_id=object.id %}">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                <div class="text-center mt-3">
+                  <button type="submit" class="btn btn-primary">Сохранить</button>
+                </div>
+              </form>
+            {% endif %}
           </div>
         </div>
       </div>
     </div>
-  {% else %}
-    <p class="text-center text-danger">У вас нет прав для редактирования комментария. Пожалуйста, войдите в систему.</p>
-  {% endif %}
+  </div>
+{% endif %}
 {% endblock %}
 

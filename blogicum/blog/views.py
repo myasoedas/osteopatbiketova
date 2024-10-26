@@ -38,11 +38,30 @@ class PostDeleteView(LoginRequiredMixin, AuthorRequiredMixin, DeleteView):
         return HttpResponseRedirect(self.get_object().get_absolute_url())
 
 
+class CommentDeleteView(LoginRequiredMixin, AuthorRequiredMixin, DeleteView):
+    model = Comment
+    template_name = 'blog/comment.html'
+    pk_url_kwarg = 'comment_id'
+
+    def get_success_url(self):
+        return reverse('blog:post_detail', kwargs={'post_id': self.object.post.id})
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['is_delete'] = True
+        return context
+
+
 class CommentUpdateView(LoginRequiredMixin, AuthorRequiredMixin, UpdateView):
     model = Comment
     form_class = CommentForm
     template_name = 'blog/comment.html'
     pk_url_kwarg = 'comment_id'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['is_delete'] = False
+        return context
 
     def get_success_url(self):
         return reverse('blog:post_detail',
@@ -138,7 +157,7 @@ class UserRegisterView(CreateView):
         return redirect(self.success_url)
 
 
-class IndexListView(PostQueryMixin, ListView, PaginatorMixin):
+class IndexListView(PostQueryMixin, ListView):
     model = Post
     context_object_name = 'page_obj'
     template_name = 'blog/index.html'
@@ -189,6 +208,7 @@ class PostDetailView(DetailView, PaginatorMixin, PostQueryMixin):
         post = self.get_object()
         comments = post.comments.select_related(
             'author').order_by('created_at')
-        context.update(self.get_paginated_context(comments))
+        paginated_context = self.get_paginated_context(comments)
+        context.update(paginated_context)
         context['form'] = CommentForm()
         return context

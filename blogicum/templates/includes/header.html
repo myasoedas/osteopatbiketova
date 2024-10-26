@@ -1,52 +1,67 @@
 {% load static %}
 <header>
-  <nav class="navbar navbar-light" style="background-color: lightskyblue">
-    <div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: lightskyblue;">
+    <div class="container-fluid">
       <a class="navbar-brand" href="{% url 'blog:index' %}">
-        <img src="{% static 'img/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
-        Блогикум
+        <img src="{% static 'img/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="Логотип Блогикум">
+        Blogicum
       </a>
-      {% with request.resolver_match.view_name as view_name %}
-        <ul class="nav  nav-pills">
+      <!-- Кнопка для мобильного меню -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Основное меню -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        {% with request.resolver_match.view_name as view_name %}
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link {% if view_name == 'pages:about' %} text-white {% endif %}" href="{% url 'pages:about' %}">
+            <a class="nav-link {% if view_name == 'pages:about' %}active{% endif %}" href="{% url 'pages:about' %}" aria-current="{% if view_name == 'pages:about' %}page{% endif %}">
               О проекте
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {% if view_name == 'pages:rules' %} text-white {% endif %}" href="{% url 'pages:rules' %}">
+            <a class="nav-link {% if view_name == 'pages:rules' %}active{% endif %}" href="{% url 'pages:rules' %}" aria-current="{% if view_name == 'pages:rules' %}page{% endif %}">
               Правила
             </a>
           </li>
-	  <li class="nav-item">
-            <a class="nav-link" href="https://www.iloveimg.com/compress-image">
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.iloveimg.com/compress-image" target="_blank" rel="noopener noreferrer">
               Сжать фото
             </a>
           </li>
-	  <li class="nav-item">
-            <a class="nav-link {% if view_name == 'pages:privacy' %} text-white {% endif %}" href="{% url 'pages:privacy' %}">
+          <li class="nav-item">
+            <a class="nav-link {% if view_name == 'pages:privacy' %}active{% endif %}" href="{% url 'pages:privacy' %}" aria-current="{% if view_name == 'pages:privacy' %}page{% endif %}">
               Privacy
             </a>
           </li>
           {% if user.is_authenticated %}
-            <div class="btn-group" role="group" aria-label="Basic outlined example">
-              <button type="button" class="btn btn-outline-primary"><a class="text-decoration-none text-reset"
-                  href="{% url 'blog:create_post' %}">Написать пост</a></button>
-              <button type="button" class="btn btn-outline-primary"><a class="text-decoration-none text-reset"
-                  href="{% url 'blog:profile' user.username %}">{{ user.username }}</a></button>
-              <button type="button" class="btn btn-outline-primary"><a class="text-decoration-none text-reset"
-                  href="{% url 'logout' %}">Выйти</a></button>
-            </div>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'blog:create_post' %}">Написать пост</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'blog:profile' user.username %}">{{ user.username }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Выйти</a>
+            </li>
           {% else %}
-            <div class="btn-group" role="group" aria-label="Basic outlined example">
-              <button type="button" class="btn btn-outline-primary"><a class="text-decoration-none text-reset"
-                  href="{% url 'login' %}">Войти</a></button>
-              <button type="button" class="btn btn-outline-primary"><a class="text-decoration-none text-reset"
-                  href="{% url 'registration' %}">Регистрация</a></button>
-            </div>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Войти</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'registration' %}">Регистрация</a>
+            </li>
           {% endif %}
         </ul>
-      {% endwith %}
+        {% endwith %}
+      </div>
     </div>
   </nav>
 </header>
+
+<!-- Подключение Bootstrap JS и jQuery для работы кнопки "бургер" -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLR7b7MU5RL5Q0gtS5p5a9pgT6rnY6DF6uKzWl5j1m" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLR7b7MU5RL5Q0gtS5p5a9pgT6rnY6DF6uKzWl5j1m" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-U1YOISiRng3VZI3z3MG/Uld/LL6/Lck/U3uB3O8Ck0F6RyFY7ha60LO5+VHI5E1Q" crossorigin="anonymous"></script>
+

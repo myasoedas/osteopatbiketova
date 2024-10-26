@@ -6,13 +6,11 @@
         <li class="page-item">
           <a class="page-link" href="?page=1" aria-label="Первая страница">
             <span aria-hidden="true">&laquo;&laquo;</span>
-            <span class="sr-only">Первая страница</span>
           </a>
         </li>
         <li class="page-item">
           <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Предыдущая">
             <span aria-hidden="true">&laquo;</span>
-            <span class="sr-only">Предыдущая страница</span>
           </a>
         </li>
       {% endif %}
@@ -39,13 +37,11 @@
         <li class="page-item">
           <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Следующая">
             <span aria-hidden="true">&raquo;</span>
-            <span class="sr-only">Следующая страница</span>
           </a>
         </li>
         <li class="page-item">
           <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Последняя страница">
             <span aria-hidden="true">&raquo;&raquo;</span>
-            <span class="sr-only">Последняя страница</span>
           </a>
         </li>
       {% endif %}
