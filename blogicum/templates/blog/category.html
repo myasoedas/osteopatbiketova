@@ -2,13 +2,31 @@
 {% block title %}
   Публикации в категории {{ category.title }}
 {% endblock %}
+
 {% block content %}
-  <h1 class="text-center">Публикации в категории - {{ category.title }}</h1>
-  <p class="col-6 offset-3 mb-5 lead text-center">{{ category.description }}</p>
-  {% for post in page_obj %}
-    <article class="mb-5">  
-      {% include "includes/post_card.html" %}
-    </article>   
-  {% endfor %}
-  {% include "includes/paginator.html" %}
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-10 col-sm-12 text-center">
+        <h1 class="mb-4">Публикации в категории - {{ category.title }}</h1>
+        <p class="lead mb-5">{{ category.description }}</p>
+      </div>
+    </div>
+
+    <div class="row justify-content-center"> <!-- Центрируем карточки -->
+      {% for post in page_obj %}
+        <div class="col-lg-6 col-md-8 col-sm-12 mb-4">
+          <article class="h-100">
+            {% include "includes/post_card.html" %}
+          </article>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        {% include "includes/paginator.html" %}
+      </div>
+    </div>
+  </div>
 {% endblock %}
+
