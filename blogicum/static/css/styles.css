@@ -1,0 +1,119 @@
+:root {
+  --primary-bg-color: #004080; /* Темно-синий для улучшенного контраста */
+  --secondary-bg-color: #87CEFA; /* Светло-голубой дополнительный цвет */
+  --primary-text-color: #FFFFFF; /* Белый цвет для текста */
+  --link-color: #4A90E2; /* Цвет ссылок */
+  --link-hover-color: #7ED321; /* Цвет ссылок при наведении */
+  --button-primary-bg: #F5A623; /* Оранжевый цвет кнопок */
+  --button-primary-hover: #D98F1A; /* Цвет кнопок при наведении */
+}
+
+body {
+  background-color: #FFFFFF;
+  color: #333333;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6; /* Лучшая читабельность */
+}
+
+.navbar {
+  background-color: var(--primary-bg-color);
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: var(--primary-text-color);
+}
+
+.navbar-nav .nav-link.active {
+  font-weight: bold;
+  color: var(--link-hover-color);
+}
+
+/* Обеспечивает одинаковую высоту для всех карточек в строке */
+.card-custom {
+  min-height: 25rem;
+  max-height: 30rem;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+/* Позволяет карточкам "подниматься" при наведении мыши */
+.card-custom:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Делаем изображение аккуратным и в едином размере */
+.card-img-top {
+  max-height: 200px;
+  object-fit: cover;
+  width: 100%;
+  object-position: center;
+}
+
+/* Обеспечивает растягивание тела карточки до всей высоты */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+/* Цвет и стили заголовка карточки */
+.card-title {
+  color: #333333;
+  margin-bottom: 1rem;
+}
+
+/* Основной цвет для кнопок в карточках */
+.btn-primary {
+  background-color: var(--button-primary-bg);
+  border-color: var(--button-primary-bg);
+}
+
+.btn-primary:hover {
+  background-color: var(--button-primary-hover);
+  border-color: var(--button-primary-hover);
+}
+
+/* Медиа-запросы для адаптивности карточек и изображений */
+@media (max-width: 576px) {
+  .card-custom {
+    min-height: 20rem;
+    max-height: 25rem;
+  }
+
+  .card-img-top {
+    max-height: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-custom {
+    min-height: 22rem;
+    max-height: 28rem;
+  }
+}
+
+/* Стили для футера */
+.footer {
+  background-color: var(--primary-bg-color);
+  color: var(--primary-text-color);
+  padding: 2rem 0;
+  text-align: center;
+}
+
+a {
+  color: var(--link-color);
+}
+
+a:hover {
+  color: var(--link-hover-color);
+}
+
