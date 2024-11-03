@@ -151,4 +151,9 @@ dmypy.json
 # файл для хранения паролей
 .env
 
+# статика веб приложения django
+blogicum/static/
+blogicum/static_dev/
 
+# медиафайлы
+blogicum/media/

@@ -5,7 +5,6 @@ from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECRET_KEY = 'django-insecure-a!d!%mri63u2l)#mnyr#!)u#y1v+1umss)656f(2ubjp(&79w1'
 SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = True
@@ -13,9 +12,9 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
-    '89.232.177.32',
-    'alexproit.ru',
-    'www.alexproit.ru',
+    '213.171.26.116',
+    'osteopatbiketova.ru',
+    'www.osteopatbiketova.ru',
 ]
 
 INSTALLED_APPS = [
